@@ -49,11 +49,8 @@ int main()
         cout << "Enter the number of shifts: ";
         shifts_amount = get_user_input();
 
-        if (!original_vector.empty() || !result_vector.empty())
-        {
-            original_vector.clear();
-            result_vector.clear();
-        }
+        original_vector.clear();
+        result_vector.clear();
         
         if (vector_size > 0 && shifts_amount >= 0)
         {
