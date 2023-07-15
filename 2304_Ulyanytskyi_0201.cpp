@@ -14,6 +14,7 @@ int get_user_input()
 void fill_vector(vector<int>& A, int vector_size)
 {
     srand(time(0));
+    A.clear();
     for (int i = 0; i < vector_size; ++i)
         A.push_back(rand() % 2001 - 1000);
 }
@@ -44,15 +45,15 @@ int main()
 
     while (true)
     {
-        cout << "Enter vector size: ";
+        cout << "Enter vector size (0 - 100]: ";
         vector_size = get_user_input();
-        cout << "Enter the number of shifts: ";
+        cout << "Enter the number of shifts [0 - 200]: ";
         shifts_amount = get_user_input();
 
-        original_vector.clear();
-        result_vector.clear();
+        bool check_vector_size = vector_size > 0 && vector_size <= 100;
+        bool check_shifts_amount = shifts_amount >= 0 && shifts_amount <= 200;
         
-        if (vector_size > 0 && shifts_amount >= 0)
+        if (check_vector_size && check_shifts_amount)
         {
             fill_vector(original_vector, vector_size);
             result_vector = solution(original_vector, shifts_amount);
